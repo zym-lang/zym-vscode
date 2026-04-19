@@ -21,10 +21,14 @@ logs/
 Thumbs.db
 
 # IDE - IntelliJ IDEA
+/.idea/
 .idea/
 *.iml
 *.iws
 *.ipr
+
+/.vscode/
+.vscode/
 
 # Test coverage
 coverage/
