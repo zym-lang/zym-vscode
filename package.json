@@ -1,8 +1,8 @@
 {
   "name": "zym-vscode",
-  "displayName": "Zym Language Support",
+  "displayName": "Zym for VS Code",
   "description": "Syntax highlighting, snippets and editor configuration for the Zym scripting language.",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0",
   "publisher": "zym-lang",
   "license": "MIT",
   "author": {
