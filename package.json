@@ -1,11 +1,59 @@
 {
   "name": "zym-vscode",
-  "version": "0.0.1",
-  "description": "zym language support vscode extension",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "displayName": "Zym Language Support",
+  "description": "Syntax highlighting, snippets and editor configuration for the Zym scripting language.",
+  "version": "0.1.0-alpha.1",
+  "publisher": "zym-lang",
+  "license": "MIT",
+  "author": {
+    "name": "Anatole DP"
   },
-  "author": "Anatole DP",
-  "license": "MIT"
+  "homepage": "https://zym-lang.org/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zym-lang/zym-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zym-lang/zym-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "zym",
+    "scripting",
+    "language"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "zym",
+        "aliases": [
+          "Zym",
+          "zym"
+        ],
+        "extensions": [
+          ".zym"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "zym",
+        "scopeName": "source.zym",
+        "path": "./syntaxes/zym.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "zym",
+        "path": "./snippets/zym.json"
+      }
+    ]
+  }
 }

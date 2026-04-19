@@ -1,0 +1,203 @@
+{
+  "Function": {
+    "prefix": "func",
+    "body": [
+      "func ${1:name}(${2:args}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Function declaration"
+  },
+  "Variable": {
+    "prefix": "var",
+    "body": ["var ${1:name} = ${2:value}"],
+    "description": "Variable declaration"
+  },
+  "If": {
+    "prefix": "if",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If statement"
+  },
+  "If / Else": {
+    "prefix": "ifelse",
+    "body": [
+      "if (${1:condition}) {",
+      "\t$2",
+      "} else {",
+      "\t$0",
+      "}"
+    ],
+    "description": "If / else statement"
+  },
+  "While": {
+    "prefix": "while",
+    "body": [
+      "while (${1:condition}) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "While loop"
+  },
+  "Do-While": {
+    "prefix": "dowhile",
+    "body": [
+      "do {",
+      "\t$0",
+      "} while (${1:condition})"
+    ],
+    "description": "Do-while loop"
+  },
+  "For": {
+    "prefix": "for",
+    "body": [
+      "for (var ${1:i} = 0; ${1:i} < ${2:n}; ${1:i} = ${1:i} + 1) {",
+      "\t$0",
+      "}"
+    ],
+    "description": "For loop"
+  },
+  "Struct": {
+    "prefix": "struct",
+    "body": ["struct ${1:Name} { ${2:field1}; ${3:field2} }"],
+    "description": "Struct declaration"
+  },
+  "Enum": {
+    "prefix": "enum",
+    "body": ["enum ${1:Name} { ${2:VARIANT_A}, ${3:VARIANT_B} }"],
+    "description": "Enum declaration"
+  },
+  "Print": {
+    "prefix": "print",
+    "body": ["print(${1:value})"],
+    "description": "Print a value"
+  },
+  "Return": {
+    "prefix": "return",
+    "body": ["return ${1:value}"],
+    "description": "Return statement"
+  },
+  "Arrow function (expression)": {
+    "prefix": "arrow",
+    "body": ["(${1:args}) => ${0:expr}"],
+    "description": "Arrow function with expression body"
+  },
+  "Arrow function (block)": {
+    "prefix": "arrowb",
+    "body": [
+      "(${1:args}) => {",
+      "\t$0",
+      "}"
+    ],
+    "description": "Arrow function with block body"
+  },
+  "Switch": {
+    "prefix": "switch",
+    "body": [
+      "switch (${1:value}) {",
+      "\tcase ${2:pattern}:",
+      "\t\t$0",
+      "\t\tbreak",
+      "\tdefault:",
+      "\t\tbreak",
+      "}"
+    ],
+    "description": "Switch statement (C-style, explicit break)"
+  },
+  "Case": {
+    "prefix": "case",
+    "body": [
+      "case ${1:pattern}:",
+      "\t$0",
+      "\tbreak"
+    ],
+    "description": "Case clause with break"
+  },
+  "Case fall-through": {
+    "prefix": "casefall",
+    "body": [
+      "case ${1:a}:",
+      "case ${2:b}:",
+      "\t$0",
+      "\tbreak"
+    ],
+    "description": "Multiple case labels falling through to the same body"
+  },
+  "Struct named init": {
+    "prefix": "sinit",
+    "body": ["${1:Type} { .${2:field} = ${3:value} }"],
+    "description": "Struct named-field initializer"
+  },
+  "TCO directive": {
+    "prefix": "tco",
+    "body": ["@tco ${1|aggressive,safe,off|}"],
+    "description": "Compiler directive for tail-call optimization mode"
+  },
+  "Goto label": {
+    "prefix": "label",
+    "body": ["${1:name}:"],
+    "description": "Goto label"
+  },
+  "Goto": {
+    "prefix": "goto",
+    "body": ["goto ${1:label}"],
+    "description": "Goto statement"
+  },
+  "Import": {
+    "prefix": "import",
+    "body": ["var ${1:name} = import(\"${2:path}.zym\")"],
+    "description": "Import a module into a variable"
+  },
+  "Named import": {
+    "prefix": "importfrom",
+    "body": ["import ${1:name} from \"${2:path}.zym\""],
+    "description": "Named import (import name from \"path\")"
+  },
+  "Use fresh directive": {
+    "prefix": "usefresh",
+    "body": ["\"use fresh\""],
+    "description": "Opt module out of singleton caching (must be first line)"
+  },
+  "Preprocessor define": {
+    "prefix": "define",
+    "body": ["#define ${1:NAME} ${2:value}"],
+    "description": "Object-like preprocessor macro"
+  },
+  "Preprocessor function-like macro": {
+    "prefix": "definefn",
+    "body": ["#define ${1:NAME}(${2:args}) ${3:body}"],
+    "description": "Function-like preprocessor macro"
+  },
+  "Preprocessor block macro": {
+    "prefix": "defineblock",
+    "body": [
+      "##define ${1:NAME}",
+      "\t$0",
+      "##enddefine"
+    ],
+    "description": "Multi-line preprocessor block macro"
+  },
+  "Preprocessor ifdef": {
+    "prefix": "ifdef",
+    "body": [
+      "#ifdef ${1:MACRO}",
+      "\t$0",
+      "#endif"
+    ],
+    "description": "Conditional compilation (#ifdef)"
+  },
+  "Preprocessor if/else": {
+    "prefix": "ppif",
+    "body": [
+      "#if ${1:condition}",
+      "\t$2",
+      "#else",
+      "\t$0",
+      "#endif"
+    ],
+    "description": "Conditional compilation (#if / #else)"
+  }
+}

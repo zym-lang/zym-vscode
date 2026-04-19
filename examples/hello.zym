@@ -1,0 +1,76 @@
+// hello.zym — sample Zym script used to eyeball the syntax highlighting.
+
+/*
+ * Multi-line block comment.
+ * Exercises: keywords, literals, strings, numbers, structs, enums,
+ * loops, closures, goto/labels, and the spread operator.
+ */
+
+var greeting = "Hello, Zym!"
+var answer   = 42
+var pi       = 3.14159
+var flag     = true
+var nothing  = null
+
+print(greeting)
+
+// ---- struct + enum ------------------------------------------------------
+struct Point { x; y }
+enum Color { RED, GREEN, BLUE }
+
+var origin = Point{0, 0}
+var hue    = Color.GREEN
+
+// ---- function + overloading --------------------------------------------
+func add(a, b) {
+    return a + b
+}
+
+func add(a, b, c) {
+    return a + b + c
+}
+
+print(add(1, 2))        // 3
+print(add(1, 2, 3))     // 6
+
+// ---- closure ------------------------------------------------------------
+func makeCounter() {
+    var n = 0
+    func tick() {
+        n = n + 1
+        return n
+    }
+    return tick
+}
+
+var counter = makeCounter()
+print(counter())        // 1
+print(counter())        // 2
+
+// ---- control flow -------------------------------------------------------
+for (var i = 0; i < 5; i = i + 1) {
+    if (i == 2) {
+        continue
+    }
+    if (i == 4) {
+        break
+    }
+    print(i)
+}
+
+var j = 0
+while (j < 3) {
+    j = j + 1
+}
+
+// ---- goto / label -------------------------------------------------------
+goto done
+print("skipped")
+done:
+print("jumped here")
+
+// ---- spread -------------------------------------------------------------
+var a = [1, 2]
+var b = [3, 4]
+var c = [...a, ...b, 5]
+print(length(c))
