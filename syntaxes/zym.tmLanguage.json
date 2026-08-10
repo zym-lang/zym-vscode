@@ -121,7 +121,7 @@
         },
         {
           "name": "keyword.operator.logical.zym",
-          "match": "\\b(and|or)\\b"
+          "match": "\\b(and|or|bitwise)\\b"
         }
       ]
     },
@@ -280,7 +280,7 @@
           }
         },
         {
-          "match": "\\b(Preempt)(\\.)(disable|enable|getDisableDepth|getTimeslice|isEnabled|popDisable|pushDisable|remaining|request|reset|setCallback|setTimeslice|withDisabled|yield)\\b",
+          "match": "\\b(Preempt)(\\.)(available|cancel|capacity|every|ids|once|remaining|request|setSlice|shield|shieldDepth)\\b",
           "captures": {
             "1": { "name": "support.class.builtin.zym" },
             "2": { "name": "punctuation.accessor.zym" },
@@ -304,7 +304,7 @@
       ]
     },
     "builtin-functions": {
-      "match": "\\b(assert|error|typeof|num|str|length|concat|indexOf|contains|slice|push|pop|shift|unshift|insert|remove|reverse|sort|join|size|isEmpty|keys|values|entries|clear|merge|charAt|charCodeAt|byteLength|fromCodePoint|startsWith|endsWith|lastIndexOf|toUpperCase|toLowerCase|trim|trimStart|trimEnd|padStart|padEnd|repeat|replace|replaceAll|split|substr|abs|floor|ceil|round|trunc|sign|sqrt|cbrt|pow|exp|exp2|expm1|log|log10|log2|log1p|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|asinh|acosh|atanh|min|max|clamp|fmod|remainder|hypot|toRadians|toDegrees|isNaN|isInfinite|isFinite|lerp|map)\\s*(?=\\()",
+      "match": "\\b(assert|error|typeof|num|str|length|concat|indexOf|contains|slice|push|pop|shift|unshift|insert|remove|reverse|sort|join|size|isEmpty|keys|values|entries|clear|merge|charAt|charCodeAt|byteLength|fill|fillRange|fromCodePoint|startsWith|endsWith|lastIndexOf|toUpperCase|toLowerCase|trim|trimStart|trimEnd|padStart|padEnd|repeat|replace|replaceAll|split|substr|abs|floor|ceil|round|trunc|sign|sqrt|cbrt|pow|exp|exp2|expm1|log|log10|log2|log1p|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|asinh|acosh|atanh|min|max|clamp|fmod|remainder|hypot|toRadians|toDegrees|isNaN|isInfinite|isFinite|lerp|map)\\s*(?=\\()",
       "captures": {
         "1": { "name": "support.function.builtin.zym" }
       }
