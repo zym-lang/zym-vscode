@@ -129,7 +129,7 @@ vsce login zym-lang
 vsce publish
 ```
 
-Before publishing, bump `version` in `package.json`, update `CHANGELOG.md`, and (optionally) add an icon (`"icon": "icon.png"` + a 128×128 PNG) to the manifest.
+Before publishing, bump `version` in `package.json` and update `CHANGELOG.md`. The Marketplace icon is `icon.png` (the Zym logo at 256×256), wired via `"icon"` in the manifest.
 
 ## Documentation
 
@@ -141,7 +141,8 @@ Before publishing, bump `version` in `package.json`, update `CHANGELOG.md`, and 
 
 ```
 zym-vscode/
-├── package.json                 Extension manifest (languages, grammars, snippets)
+├── package.json                 Extension manifest (languages, grammars, snippets, icon)
+├── icon.png                     Marketplace / sidebar icon (Zym logo, 256×256)
 ├── language-configuration.json  Brackets, comments, auto-close, folding, indent rules
 ├── syntaxes/
 │   └── zym.tmLanguage.json      TextMate grammar driving the highlighting
