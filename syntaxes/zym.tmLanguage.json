@@ -2,27 +2,67 @@
   "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "name": "Zym",
   "scopeName": "source.zym",
-  "fileTypes": ["zym"],
+  "fileTypes": [
+    "zym"
+  ],
   "patterns": [
-    { "include": "#preprocessor" },
-    { "include": "#comments" },
-    { "include": "#strings" },
-    { "include": "#numbers" },
-    { "include": "#compiler-directive" },
-    { "include": "#struct-declaration" },
-    { "include": "#enum-declaration" },
-    { "include": "#function-declaration" },
-    { "include": "#goto-label" },
-    { "include": "#field-designator" },
-    { "include": "#keywords" },
-    { "include": "#constants" },
-    { "include": "#operators" },
-    { "include": "#builtin-modules" },
-    { "include": "#builtin-functions" },
-    { "include": "#function-call" },
-    { "include": "#member-access" },
-    { "include": "#identifiers" },
-    { "include": "#punctuation" }
+    {
+      "include": "#preprocessor"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#compiler-directive"
+    },
+    {
+      "include": "#struct-declaration"
+    },
+    {
+      "include": "#enum-declaration"
+    },
+    {
+      "include": "#function-declaration"
+    },
+    {
+      "include": "#goto-label"
+    },
+    {
+      "include": "#field-designator"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#operators"
+    },
+    {
+      "include": "#builtin-modules"
+    },
+    {
+      "include": "#builtin-functions"
+    },
+    {
+      "include": "#function-call"
+    },
+    {
+      "include": "#member-access"
+    },
+    {
+      "include": "#identifiers"
+    },
+    {
+      "include": "#punctuation"
+    }
   ],
   "repository": {
     "comments": {
@@ -32,7 +72,9 @@
           "begin": "//",
           "end": "$",
           "beginCaptures": {
-            "0": { "name": "punctuation.definition.comment.zym" }
+            "0": {
+              "name": "punctuation.definition.comment.zym"
+            }
           }
         },
         {
@@ -40,32 +82,69 @@
           "begin": "/\\*",
           "end": "\\*/",
           "beginCaptures": {
-            "0": { "name": "punctuation.definition.comment.begin.zym" }
+            "0": {
+              "name": "punctuation.definition.comment.begin.zym"
+            }
           },
           "endCaptures": {
-            "0": { "name": "punctuation.definition.comment.end.zym" }
+            "0": {
+              "name": "punctuation.definition.comment.end.zym"
+            }
           }
         }
       ]
     },
     "strings": {
-      "name": "string.quoted.double.zym",
-      "begin": "\"",
-      "end": "\"",
-      "beginCaptures": {
-        "0": { "name": "punctuation.definition.string.begin.zym" }
-      },
-      "endCaptures": {
-        "0": { "name": "punctuation.definition.string.end.zym" }
-      },
       "patterns": [
         {
-          "name": "constant.character.escape.zym",
-          "match": "\\\\([abfnrtv0\"'\\\\]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+          "name": "string.quoted.triple.zym",
+          "begin": "\"\"\"",
+          "end": "\"\"\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.zym"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.zym"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.zym",
+              "match": "\\\\([abfnrtv0\"'\\\\]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            },
+            {
+              "name": "constant.other.placeholder.zym",
+              "match": "%[-+ #0]*\\d*(?:\\.\\d+)?[A-Za-z%]"
+            }
+          ]
         },
         {
-          "name": "constant.other.placeholder.zym",
-          "match": "%[-+ #0]*\\d*(?:\\.\\d+)?[A-Za-z%]"
+          "name": "string.quoted.double.zym",
+          "begin": "\"",
+          "end": "\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.zym"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.zym"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.zym",
+              "match": "\\\\([abfnrtv0\"'\\\\]|x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4})"
+            },
+            {
+              "name": "constant.other.placeholder.zym",
+              "match": "%[-+ #0]*\\d*(?:\\.\\d+)?[A-Za-z%]"
+            }
+          ]
         }
       ]
     },
@@ -172,26 +251,40 @@
     "function-declaration": {
       "match": "\\b(func)\\s+([A-Za-z_][A-Za-z0-9_]*)",
       "captures": {
-        "1": { "name": "storage.type.function.zym" },
-        "2": { "name": "entity.name.function.zym" }
+        "1": {
+          "name": "storage.type.function.zym"
+        },
+        "2": {
+          "name": "entity.name.function.zym"
+        }
       }
     },
     "struct-declaration": {
       "match": "\\b(struct)\\s+([A-Za-z_][A-Za-z0-9_]*)",
       "captures": {
-        "1": { "name": "storage.type.struct.zym" },
-        "2": { "name": "entity.name.type.struct.zym" }
+        "1": {
+          "name": "storage.type.struct.zym"
+        },
+        "2": {
+          "name": "entity.name.type.struct.zym"
+        }
       }
     },
     "enum-declaration": {
       "begin": "\\b(enum)\\s+([A-Za-z_][A-Za-z0-9_]*)\\s*\\{",
       "beginCaptures": {
-        "1": { "name": "storage.type.enum.zym" },
-        "2": { "name": "entity.name.type.enum.zym" }
+        "1": {
+          "name": "storage.type.enum.zym"
+        },
+        "2": {
+          "name": "entity.name.type.enum.zym"
+        }
       },
       "end": "\\}",
       "patterns": [
-        { "include": "#comments" },
+        {
+          "include": "#comments"
+        },
         {
           "name": "variable.other.enummember.zym",
           "match": "\\b[A-Za-z_][A-Za-z0-9_]*\\b"
@@ -208,16 +301,24 @@
           "name": "meta.preprocessor.block.zym",
           "match": "^\\s*(##)(define|enddefine)\\b",
           "captures": {
-            "1": { "name": "punctuation.definition.directive.zym" },
-            "2": { "name": "keyword.control.directive.zym" }
+            "1": {
+              "name": "punctuation.definition.directive.zym"
+            },
+            "2": {
+              "name": "keyword.control.directive.zym"
+            }
           }
         },
         {
           "name": "meta.preprocessor.zym",
           "match": "^\\s*(#)(define|undef|if|ifdef|ifndef|elif|else|endif|error)\\b",
           "captures": {
-            "1": { "name": "punctuation.definition.directive.zym" },
-            "2": { "name": "keyword.control.directive.zym" }
+            "1": {
+              "name": "punctuation.definition.directive.zym"
+            },
+            "2": {
+              "name": "keyword.control.directive.zym"
+            }
           }
         },
         {
@@ -231,16 +332,26 @@
         {
           "match": "(@)(tco)\\s+(aggressive|safe|off)\\b",
           "captures": {
-            "1": { "name": "punctuation.definition.directive.zym" },
-            "2": { "name": "keyword.other.directive.zym" },
-            "3": { "name": "constant.language.directive.mode.zym" }
+            "1": {
+              "name": "punctuation.definition.directive.zym"
+            },
+            "2": {
+              "name": "keyword.other.directive.zym"
+            },
+            "3": {
+              "name": "constant.language.directive.mode.zym"
+            }
           }
         },
         {
           "match": "(@)([A-Za-z_][A-Za-z0-9_]*)",
           "captures": {
-            "1": { "name": "punctuation.definition.directive.zym" },
-            "2": { "name": "keyword.other.directive.zym" }
+            "1": {
+              "name": "punctuation.definition.directive.zym"
+            },
+            "2": {
+              "name": "keyword.other.directive.zym"
+            }
           }
         }
       ]
@@ -248,8 +359,12 @@
     "field-designator": {
       "match": "(\\.)([A-Za-z_][A-Za-z0-9_]*)\\s*(?==)",
       "captures": {
-        "1": { "name": "punctuation.accessor.zym" },
-        "2": { "name": "variable.other.property.zym" }
+        "1": {
+          "name": "punctuation.accessor.zym"
+        },
+        "2": {
+          "name": "variable.other.property.zym"
+        }
       }
     },
     "goto-label": {
@@ -257,14 +372,20 @@
         {
           "match": "\\b(goto)\\s+([A-Za-z_][A-Za-z0-9_]*)",
           "captures": {
-            "1": { "name": "keyword.control.flow.goto.zym" },
-            "2": { "name": "entity.name.label.zym" }
+            "1": {
+              "name": "keyword.control.flow.goto.zym"
+            },
+            "2": {
+              "name": "entity.name.label.zym"
+            }
           }
         },
         {
           "match": "^\\s*([A-Za-z_][A-Za-z0-9_]*)\\s*:\\s*(?://.*)?$",
           "captures": {
-            "1": { "name": "entity.name.label.zym" }
+            "1": {
+              "name": "entity.name.label.zym"
+            }
           }
         }
       ]
@@ -274,45 +395,69 @@
         {
           "match": "\\b(Cont)(\\.)(abort|capture|isContinuation|isPromptTag|isValid|newPrompt|popPrompt|pushPrompt|resume|shift|withPrompt)\\b",
           "captures": {
-            "1": { "name": "support.class.builtin.zym" },
-            "2": { "name": "punctuation.accessor.zym" },
-            "3": { "name": "support.function.builtin.zym" }
+            "1": {
+              "name": "support.class.builtin.zym"
+            },
+            "2": {
+              "name": "punctuation.accessor.zym"
+            },
+            "3": {
+              "name": "support.function.builtin.zym"
+            }
           }
         },
         {
           "match": "\\b(Preempt)(\\.)(available|cancel|capacity|every|ids|once|remaining|request|setSlice|shield|shieldDepth)\\b",
           "captures": {
-            "1": { "name": "support.class.builtin.zym" },
-            "2": { "name": "punctuation.accessor.zym" },
-            "3": { "name": "support.function.builtin.zym" }
+            "1": {
+              "name": "support.class.builtin.zym"
+            },
+            "2": {
+              "name": "punctuation.accessor.zym"
+            },
+            "3": {
+              "name": "support.function.builtin.zym"
+            }
           }
         },
         {
           "match": "\\b(GC)(\\.)(cycle|getBytesThreshold|getBytesTracked|isPaused|pause|resume|setBytesThreshold)\\b",
           "captures": {
-            "1": { "name": "support.class.builtin.zym" },
-            "2": { "name": "punctuation.accessor.zym" },
-            "3": { "name": "support.function.builtin.zym" }
+            "1": {
+              "name": "support.class.builtin.zym"
+            },
+            "2": {
+              "name": "punctuation.accessor.zym"
+            },
+            "3": {
+              "name": "support.function.builtin.zym"
+            }
           }
         },
         {
           "match": "\\b(Cont|Preempt|GC)\\b",
           "captures": {
-            "1": { "name": "support.class.builtin.zym" }
+            "1": {
+              "name": "support.class.builtin.zym"
+            }
           }
         }
       ]
     },
     "builtin-functions": {
-      "match": "\\b(assert|error|typeof|num|str|length|concat|indexOf|contains|slice|push|pop|shift|unshift|insert|remove|reverse|sort|join|size|isEmpty|keys|values|entries|clear|merge|charAt|charCodeAt|byteLength|fill|fillRange|fromCodePoint|startsWith|endsWith|lastIndexOf|toUpperCase|toLowerCase|trim|trimStart|trimEnd|padStart|padEnd|repeat|replace|replaceAll|split|substr|abs|floor|ceil|round|trunc|sign|sqrt|cbrt|pow|exp|exp2|expm1|log|log10|log2|log1p|sin|cos|tan|asin|acos|atan|atan2|sinh|cosh|tanh|asinh|acosh|atanh|min|max|clamp|fmod|remainder|hypot|toRadians|toDegrees|isNaN|isInfinite|isFinite|lerp|map)\\s*(?=\\()",
+      "match": "\\b(assert|error|typeof|num|str|length|concat|indexOf|contains|slice|push|pop|shift|unshift|insert|remove|reverse|sort|join|size|isEmpty|keys|values|entries|clear|merge|charAt|charCodeAt|byteLength|fill|fillRange|fromCodePoint|startsWith|endsWith|lastIndexOf|toUpperCase|toLowerCase|trim|trimStart|trimEnd|padStart|padEnd|repeat|replace|replaceAll|split|substr|abs|floor|ceil|round|trunc|sign|sqrt|cbrt|pow|exp|log|sin|cos|tan|asin|acos|atan|sinh|cosh|tanh|asinh|acosh|atanh|min|max|clamp|fmod|remainder|hypot|toRadians|toDegrees|isNaN|isInfinite|isFinite|lerp|map|expm)\\s*(?=\\()",
       "captures": {
-        "1": { "name": "support.function.builtin.zym" }
+        "1": {
+          "name": "support.function.builtin.zym"
+        }
       }
     },
     "function-call": {
       "match": "\\b([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
       "captures": {
-        "1": { "name": "entity.name.function.call.zym" }
+        "1": {
+          "name": "entity.name.function.call.zym"
+        }
       }
     },
     "member-access": {
@@ -320,15 +465,23 @@
         {
           "match": "(\\.)([A-Za-z_][A-Za-z0-9_]*)\\s*(?=\\()",
           "captures": {
-            "1": { "name": "punctuation.accessor.zym" },
-            "2": { "name": "entity.name.function.member.zym" }
+            "1": {
+              "name": "punctuation.accessor.zym"
+            },
+            "2": {
+              "name": "entity.name.function.member.zym"
+            }
           }
         },
         {
           "match": "(\\.)([A-Za-z_][A-Za-z0-9_]*)",
           "captures": {
-            "1": { "name": "punctuation.accessor.zym" },
-            "2": { "name": "variable.other.property.zym" }
+            "1": {
+              "name": "punctuation.accessor.zym"
+            },
+            "2": {
+              "name": "variable.other.property.zym"
+            }
           }
         }
       ]
@@ -339,9 +492,18 @@
     },
     "punctuation": {
       "patterns": [
-        { "name": "punctuation.separator.comma.zym", "match": "," },
-        { "name": "punctuation.terminator.statement.zym", "match": ";" },
-        { "name": "punctuation.separator.colon.zym", "match": ":" }
+        {
+          "name": "punctuation.separator.comma.zym",
+          "match": ","
+        },
+        {
+          "name": "punctuation.terminator.statement.zym",
+          "match": ";"
+        },
+        {
+          "name": "punctuation.separator.colon.zym",
+          "match": ":"
+        }
       ]
     }
   }

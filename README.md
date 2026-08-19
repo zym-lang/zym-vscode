@@ -9,7 +9,7 @@
 
 ---
 
-> **⚠️ Alpha, `0.1.0-alpha.1`.** Targets the public `0.2.0` Zym surface (docs, CLI, core). Also covers the only feature currently landed on the in-development `0.3.0-alpha` branch (same cut as [`zym-js`](https://github.com/zym-lang/zym-js)): **variadic function fallbacks**. Grammar and snippets will shift as `0.3.0` fills in.
+> **`0.3.2`.** Grammar, snippets, and editor configuration track the public `0.3.2` Zym surface (core, CLI, and [`zym-js`](https://github.com/zym-lang/zym-js)). Anything that highlights here compiles on `0.3.2`. Highlighting only: no language server yet.
 
 ---
 
@@ -64,11 +64,11 @@ var origin = Point{ .x = 0, .y = 0 };
 
 ## Features
 
-- **Syntax highlighting** for `.zym` files: keywords (`func`, `var`, `struct`, `enum`, `if`, `else`, `while`, `do`, `for`, `switch`, `case`, `default`, `break`, `continue`, `return`, `goto`, `import`, `from`, `and`, `or`), strings with escapes and `%s` / `%d` / `%v` / `%n` placeholders, hex / binary / decimal / float numbers (including underscores), comments, operators (arithmetic, comparison, logical, bitwise, ternary, arrow `=>`, spread `...`).
+- **Syntax highlighting** for `.zym` files: keywords (`func`, `var`, `struct`, `enum`, `if`, `else`, `while`, `do`, `for`, `switch`, `case`, `default`, `break`, `continue`, `return`, `goto`, `import`, `from`, `and`, `or`), strings with escapes and `%s` / `%d` / `%v` / `%n` placeholders, triple-quoted `"""…"""` multi-line strings, hex / binary / decimal / float numbers (including underscores), comments, operators (arithmetic, comparison, logical, bitwise, ternary, arrow `=>`, spread `...`).
 - **Compiler directives.** `@tco aggressive|safe|off` is colorized as a directive with the mode as a language constant. Any other `@name` falls through to a generic directive scope.
 - **Preprocessor.** `#define`, `#undef`, `#if`, `#ifdef`, `#ifndef`, `#elif`, `#else`, `#endif`, `#error`, the block form `##define` / `##enddefine`, and the `defined` operator.
 - **Built-in modules.** `Cont`, `Preempt`, and `GC` are scoped as builtin classes; their documented members (e.g. `Cont.capture`, `Preempt.yield`, `GC.cycle`) are scoped as builtin functions.
-- **Built-in natives.** The 80-ish core natives shipped by `zym_core` (strings, math, lists, maps, conversions, error) are scoped as `support.function.builtin`. Embedder-registered natives like `print` are **not** claimed — they fall through to the normal function-call scope, because they are not guaranteed to exist in every embedding.
+- **Built-in natives.** The 84 core natives shipped by `zym_core` `0.3.2` (strings, math, lists, maps, conversions, error) are scoped as `support.function.builtin`. Embedder-registered natives like `print` are **not** claimed — they fall through to the normal function-call scope, because they are not guaranteed to exist in every embedding.
 - **Struct named init.** `.x = …` inside a struct initializer is highlighted as a field designator.
 - **Labels & `goto`.** `label:` at the start of a line and `goto label` are both recognized.
 - **Language configuration.** Bracket matching, auto-closing pairs, `Ctrl+/` line-comment toggle, `Shift+Alt+A` block-comment toggle, `//#region` / `//#endregion` folding markers, indent-on-enter rules after `{`.
@@ -158,9 +158,8 @@ zym-vscode/
 
 ## Status
 
-- The full grammar — keywords (`func`, `var`, `struct`, `enum`, `if`/`else`, `while`/`do`, `for`, `switch`/`case`/`default`, `break`/`continue`, `return`, `goto`, `import`/`from`, `and`/`or`), compiler directives (`@tco aggressive|safe|off`), the preprocessor (`#define` / `##define` / `#if` / `#ifdef` / …), and built-in modules (`Cont`, `Preempt`, `GC`) — matches the public `0.2.0` Zym release. Anything that highlights here also compiles on the `0.2.0` CLI/core.
-- The only feature currently on the in-development `0.3.0-alpha` branch that is *not* in `0.2.0` is **variadic function fallbacks** (multiple `func f(…)` overloads resolved by arity with a `...rest` fallback). Grammar already handles it because it's ordinary `func` syntax; no dedicated scope needed.
-- Built-in native list follows `zym_core`'s current registrations (strings, math, lists, maps, conversions, error). Embedder-registered natives (`print`, CLI-only IO, etc.) are intentionally **not** claimed — they fall through to a generic function-call scope.
+- The full grammar — keywords (`func`, `var`, `struct`, `enum`, `if`/`else`, `while`/`do`, `for`, `switch`/`case`/`default`, `break`/`continue`, `return`, `goto`, `import`/`from`, `and`/`or`), triple-quoted strings, variadic functions, compiler directives (`@tco aggressive|safe|off`), the preprocessor (`#define` / `##define` / `#if` / `#ifdef` / …), and built-in modules (`Cont`, `Preempt`, `GC`, with their `0.3.2` member sets) — matches the public `0.3.2` Zym release. Anything that highlights here also compiles on the `0.3.2` CLI/core.
+- Built-in native list matches `zym_core` `0.3.2`'s registrations exactly (84 natives: strings, math, lists, maps, conversions, error). Embedder-registered natives (`print`, CLI-only IO, etc.) are intentionally **not** claimed — they fall through to a generic function-call scope.
 - No language server yet. Diagnostics, hover, go-to-definition, and autocomplete land behind an LSP once the language surface settles.
 - Not yet published to the VS Code Marketplace. Install from source (`F5`) or a locally built `.vsix` until then.
 
