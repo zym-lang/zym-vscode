@@ -161,7 +161,6 @@ zym-vscode/
 - The full grammar — keywords (`func`, `var`, `struct`, `enum`, `if`/`else`, `while`/`do`, `for`, `switch`/`case`/`default`, `break`/`continue`, `return`, `goto`, `import`/`from`, `and`/`or`), triple-quoted strings, variadic functions, compiler directives (`@tco aggressive|safe|off`), the preprocessor (`#define` / `##define` / `#if` / `#ifdef` / …), and built-in modules (`Cont`, `Preempt`, `GC`, with their `0.3.2` member sets) — matches the public `0.3.2` Zym release. Anything that highlights here also compiles on the `0.3.2` CLI/core.
 - Built-in native list matches `zym_core` `0.3.2`'s registrations exactly (84 natives: strings, math, lists, maps, conversions, error). Embedder-registered natives (`print`, CLI-only IO, etc.) are intentionally **not** claimed — they fall through to a generic function-call scope.
 - No language server yet. Diagnostics, hover, go-to-definition, and autocomplete land behind an LSP once the language surface settles.
-- Not yet published to the VS Code Marketplace. Install from source (`F5`) or a locally built `.vsix` until then.
 
 ## License
 
